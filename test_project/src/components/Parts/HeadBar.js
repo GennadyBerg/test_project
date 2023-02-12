@@ -45,36 +45,49 @@ function HeadBar(props) {
   );
 
   const container = window !== undefined ? () => window().document.body : undefined;
-
   return (
     <>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
         <AppBar component="nav">
           <Toolbar>
-            <Grid container>
-              <Grid item xs="1">
-                <Box>
-                  <ImageLogoSignal />
-                </Box>
-                <IconButton
-                  color="inherit"
-                  aria-label="open drawer"
-                  edge="start"
-                  onClick={handleDrawerToggle}
-                  sx={{ mr: 2, display: { sm: 'none' } }}
-                >
-                  <MenuIcon />
-                </IconButton>
+            <Grid
+              container
+            >
+              <Grid item sx={{ flexGrow: 1 }}
+                display='flex'
+                direction="row"
+                alignItems="center"
+                justifyContent="flex-start"
+              >
+                <ImageLogoSignal />
               </Grid>
-              <Grid item  xs="11">
-                <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-                  {navItems.map((item) => (
-                    <Button key={item} sx={{ color: '#fff' }}>
-                      {item}
-                    </Button>
-                  ))}
-                </Box>
+              <Grid
+                whiteSpace='nowrap'
+                direction="row"
+                justifyContent="flex-end"
+                alignItems="center"
+              >
+                <Grid item >
+                  <IconButton
+                    color="inherit"
+                    aria-label="open drawer"
+                    edge="start"
+                    onClick={handleDrawerToggle}
+                    sx={{ mr: 2, display: { lg: 'none' } }}
+                  >
+                    <MenuIcon />
+                  </IconButton>
+                </Grid>
+                <Grid item xs="8">
+                  <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
+                    {navItems.map((item) => (
+                      <Button key={item} sx={{ color: '#fff' }}>
+                        {item}
+                      </Button>
+                    ))}
+                  </Box>
+                </Grid>
               </Grid>
             </Grid>
           </Toolbar>
