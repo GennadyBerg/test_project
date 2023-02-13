@@ -33,6 +33,15 @@ function HeadBar(props) {
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Divider />
       <List>
+        /*  selected item menu*/
+        <div>
+          <svg
+            width="37px" height="2px">
+            <path fill-rule="evenodd" fill="rgb(75, 202, 255)"
+              d="M-0.000,-0.000 L36.1000,-0.000 L36.1000,1.999 L-0.000,1.999 L-0.000,-0.000 Z" />
+          </svg>
+        </div>
+
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>

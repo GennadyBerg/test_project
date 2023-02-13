@@ -1,23 +1,27 @@
 import styles from "./ImageLogoSignal.module.css";
 import { Image } from './Image';
-import { ImageLogoSignalPic } from "../../images";
+import { ImageSignal } from "../../images";
 import WebFont from 'webfontloader';
+import { Box } from "@mui/material";
 
 const ImageLogoSignal = (props) => {
     let { url, imageprops } = props;
-    //                <Image url={ImageLogoSignalPic} className={styles.logo} imageprops={{ ...imageprops, width: "137px", height: "52px" }} />
+//  <Image url={ImageLogoSignalPic} className={styles.logo} imageprops={{ ...imageprops, width: "137px", height: "52px" }} />
 
     return (
         <>
             <div  {...props}>
-
-                <svg
-                    height="16px">
-                    <text kerning="auto" font-family="Myriad Pro" fill="rgb(0, 0, 0)" font-size="36px" x="0px" y="16px">
-                        <tspan font-size="16px" font-family="Droid Sans" font-weight="bold" fill="#FFFFFF">ba</tspan>
-                        <tspan font-size="16px" font-family="Droid Sans" font-weight="bold" fill="#4BCAFF">zinger</tspan>
-                    </text>
-                </svg>
+                <Box>
+                    <Image url={ImageSignal} className={styles.signal} imageprops={{ ...imageprops, width: "27px", height: "11px", position: "absolut" }} />
+                    
+                    <svg
+                        height="36px">
+                        <text kerning="auto" font-family="Myriad Pro" fill="rgb(0, 0, 0)" font-size="36px" x="0px" y="16px">
+                            <tspan font-size="36px" font-family="Droid Sans" font-weight="bold" fill="#FFFFFF">ba</tspan>
+                            <tspan font-size="36px" font-family="Droid Sans" font-weight="bold" fill="#4BCAFF">zinger</tspan>
+                        </text>
+                    </svg>
+                </Box>
             </div>
         </>
     );
