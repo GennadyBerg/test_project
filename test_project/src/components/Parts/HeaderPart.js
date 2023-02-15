@@ -23,7 +23,6 @@ function HeaderPart(props) {
   return (
     <>
       <HeadBar />
-      <ImageBackgroundHeader />
     </>
 
 

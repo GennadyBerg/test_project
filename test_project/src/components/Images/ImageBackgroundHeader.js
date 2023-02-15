@@ -1,15 +1,17 @@
 import styles from "./ImageLogoSignal.module.css";
 import { Image } from './Image';
 import { ImageLayer15 } from '../../images';
+import { Paper, Box } from "@mui/material";
 
 const ImageBackgroundHeader = (props) => {
     let { url, imageprops } = props;
+    //
 
     return (
         <>
-            <div {...props}>
-                <Image url={ImageLayer15} className={styles.layer15} imageprops={{ ...imageprops, width: "1480px", height: "943px" }} />
-            </div>
+            <Box id="mbTest1"  {...props}  width="1488px"  height= "943px" sx={{ backgroundImage: `url(${ImageLayer15})`, backgroundAttachment:"local" }}>
+                {props.children}
+            </Box>
         </>
     )
 }

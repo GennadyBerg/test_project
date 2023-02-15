@@ -14,8 +14,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { ImageLogoSignal } from '../Images';
+import { ImageBackgroundHeader, ImageLogoSignal } from '../Images';
 import { Grid } from '@mui/material';
+import { BaseHeaderBar } from './BaseHeaderBar';
 
 const drawerWidth = 240;
 const navItems = ['HOME', 'FEATURES', 'GALLARY', 'VIDEO', 'PRICES', 'TESTIMONIALS', 'DOWNLOAD', 'CONTACT'];
@@ -33,7 +34,6 @@ function HeadBar(props) {
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Divider />
       <List>
-        /*  selected item menu*/
         <div>
           <svg
             width="37px" height="2px">
@@ -56,73 +56,108 @@ function HeadBar(props) {
   const container = window !== undefined ? () => window().document.body : undefined;
   return (
     <>
-      <Box sx={{ display: 'flex' }}>
-        <CssBaseline />
-        <AppBar component="nav">
-          <Toolbar>
-            <Grid
-              container
-            >
-              <Grid item sx={{ flexGrow: 1 }}
-                display='flex'
-                direction="row"
-                alignItems="center"
-                justifyContent="flex-start"
-              >
-                <ImageLogoSignal />
-              </Grid>
-              <Grid
-                whiteSpace='nowrap'
-                direction="row"
-                justifyContent="flex-end"
-                alignItems="center"
-              >
-                <Grid item >
-                  <IconButton
-                    color="inherit"
-                    aria-label="open drawer"
-                    edge="start"
-                    onClick={handleDrawerToggle}
-                    sx={{ mr: 2, display: { lg: 'none' } }}
-                  >
-                    <MenuIcon />
-                  </IconButton>
-                </Grid>
-                <Grid item xs="8">
-                  <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
-                    {navItems.map((item) => (
-                      <Button key={item} sx={{ color: '#fff' }}>
-                        {item}
-                      </Button>
-                    ))}
-                  </Box>
-                </Grid>
-              </Grid>
-            </Grid>
-          </Toolbar>
-        </AppBar>
-        <Box component="nav">
-          <Drawer
-            container={container}
-            variant="temporary"
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
+      <ImageBackgroundHeader  >
+        <Box id="HeaderBar"
+          sx={{
+            display: "inline-block",
+            width: "1488px",
+            height: "100%"
+          }}
+        >
+          <CssBaseline />
+          <AppBar
+            id="AppBar"
+            component="nav"
             sx={{
-              display: { xs: 'block', sm: 'none' },
-              '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+              backgroundColor: "rgb(0 0 0 / 0%)",
+              left: "0", top: "0", position: "fixed",
+              width: "inherit",
+              height: "108px",
+              display: "inline-flex"
             }}
           >
-            {drawer}
-          </Drawer>
-        </Box>
-        <Box component="main" sx={{ p: 3 }}>
-          <Toolbar />
+            <Toolbar
+              sx={{
+                height: "inherit",
+              }}
+            >
+              <Grid
+                container
+                sx={
+                  {
+                    flexGrow: 1,
+                    display: 'flex',
+                    direction: "row",
+                    alignItems: "center",
+                    justifyContent: "flex-start",
+                  }}
+              >
+                <Grid item
+                  sx={
+                    {
+                      flexGrow: 1,
+                      display: 'inline-block',
+                      direction: "row",
+                      alignItems: "center",
+                      justifyContent: "flex-start",
+                    }}
+                >
+                  <ImageLogoSignal />
+                </Grid>
+                <Grid
+                  whiteSpace='nowrap'
+                  direction="row"
+                  justifyContent="flex-end"
+                  alignItems="center"
+                >
+                  <Grid item >
+                    <IconButton
+                      color="inherit"
+                      aria-label="open drawer"
+                      edge="start"
+                      onClick={handleDrawerToggle}
+                      sx={{ mr: 2, display: { lg: 'none' } }}
+                    >
+                      <MenuIcon />
+                    </IconButton>
+                  </Grid>
+                  <Grid item xs="8">
+                    <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
+                      {navItems.map((item) => (
+                        <Button key={item} sx={{ color: '#fff' }}>
+                          {item}
+                        </Button>
+                      ))}
+                    </Box>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Toolbar>
+          </AppBar>
+          <Box component="nav">
+            <Drawer
+              anchor="right"
+              container={container}
+              variant="temporary"
+              open={mobileOpen}
+              onClose={handleDrawerToggle}
+              ModalProps={{
+                keepMounted: true, // Better open performance on mobile.
+              }}
+              sx={{
+                display: { md: 'block', lg: 'none' },
+                '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+              }}
+            >
+              {drawer}
+            </Drawer>
+          </Box>
+          <Box component="main" sx={{ p: 3 }}>
+            <Toolbar />
 
+          </Box>
         </Box>
-      </Box>
+      </ImageBackgroundHeader>
     </>
   );
 }
